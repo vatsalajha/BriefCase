@@ -25,6 +25,7 @@ next-env.d.ts
 
 # Documentation
 *.md
+!README.md
 
 # Lock files
 package-lock.json
