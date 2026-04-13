@@ -25,7 +25,7 @@ function tfHeaders() {
     "X-API-Key": process.env.TRUSTFOUNDARY_API_KEY ?? "",
     "Content-Type": "application/json",
     Accept: "application/json",
-    "User-Agent": "BriefCheck/1.0 (legal-brief-analyzer; +https://github.com/briefcheck)",
+    "User-Agent": "BriefCase/1.0 (legal-brief-analyzer; +https://github.com/vatsalajha/BriefCase)",
   };
 }
 

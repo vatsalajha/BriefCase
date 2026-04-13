@@ -131,17 +131,26 @@ const CIT_STAT_CFG = [
     bg: "rgba(220,38,38,0.08)",
     border: "rgba(220,38,38,0.2)",
   },
+  {
+    key: "error" as CitFilter,
+    label: "Errors",
+    icon: XCircle,
+    color: "var(--text-secondary)",
+    bg: "var(--bg-tertiary)",
+    border: "var(--border)",
+  },
 ] as const;
 
 function CitationsTab({ report }: { report: AnalysisReport }) {
   const [filter, setFilter] = useState<CitFilter>("all");
 
+  // Derive counts directly from results so they always match the cards shown
   const counts: Record<CitFilter, number> = {
-    all: report.totalCitations,
-    verified: report.verified,
-    warning: report.warnings,
-    not_found: report.notFound,
-    error: report.errors,
+    all: report.results.length,
+    verified: report.results.filter((r) => r.status === "verified").length,
+    warning: report.results.filter((r) => r.status === "warning").length,
+    not_found: report.results.filter((r) => r.status === "not_found").length,
+    error: report.results.filter((r) => r.status === "error").length,
   };
 
   const filtered: VerificationResult[] =
@@ -151,18 +160,19 @@ function CitationsTab({ report }: { report: AnalysisReport }) {
 
   return (
     <div className="space-y-5">
-      {/* Stat cards */}
-      <div className="grid grid-cols-3 gap-3">
-        {CIT_STAT_CFG.map(({ key, label, icon: Icon, color, bg, border }) => (
+      {/* Stat cards — only render cards with non-zero counts */}
+      <div className="flex flex-wrap gap-3">
+        {CIT_STAT_CFG.filter(({ key }) => counts[key] > 0).map(({ key, label, icon: Icon, color, bg, border }) => (
           <motion.button
             key={key}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setFilter(filter === key ? "all" : key)}
-            className="rounded-xl p-4 text-left transition-all"
+            className="rounded-xl p-4 text-left transition-all flex-1"
             style={{
               background: filter === key ? bg : "var(--bg-secondary)",
               border: `1px solid ${filter === key ? border : "var(--border)"}`,
+              minWidth: "100px",
             }}
           >
             <Icon size={18} style={{ color }} strokeWidth={2} />
@@ -238,7 +248,7 @@ function JurisdictionTab({ report }: { report: AnalysisReport }) {
             No contract clauses detected
           </p>
           <p className="text-xs mt-1.5 max-w-sm mx-auto" style={{ color: "var(--text-secondary)" }}>
-            BriefCheck scans for non-compete, arbitration, NDA, liability cap, and
+            BriefCase scans for non-compete, arbitration, NDA, liability cap, and
             non-solicitation clauses automatically.
           </p>
           <p className="text-xs mt-4" style={{ color: "var(--text-secondary)", opacity: 0.7 }}>
@@ -334,7 +344,7 @@ tools in the preparation of court filings, undersigned counsel certifies as
 follows:
 
 1. SCOPE OF AI USE. Artificial intelligence tools were used in the preparation
-   of the attached filing. Specifically, BriefCheck, an AI-powered legal
+   of the attached filing. Specifically, BriefCase, an AI-powered legal
    citation verification tool, was used to review and analyze citations
    contained in this document.
 
@@ -750,7 +760,7 @@ export default function Dashboard({ report, onReset }: DashboardProps) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `briefcheck-${report.fileName.replace(/\.[^.]+$/, "")}-${Date.now()}.json`;
+    a.download = `briefcase-${report.fileName.replace(/\.[^.]+$/, "")}-${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }

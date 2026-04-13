@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "BriefCheck — Citation Verification for Legal Professionals",
+  title: "BriefCase — Citation Verification for Legal Professionals",
   description:
     "Upload a legal brief and instantly verify every case citation against real case law. Catch hallucinations before they catch you.",
   openGraph: {
-    title: "BriefCheck — Citation Verification for Legal Professionals",
+    title: "BriefCase — Citation Verification for Legal Professionals",
     description:
       "Upload a legal brief and instantly verify every case citation against real case law. Catch hallucinations before they catch you.",
     type: "website",

@@ -49,23 +49,23 @@ export default function UploadZone({ onFile, onText, disabled }: UploadZoneProps
         <motion.button
           onClick={handleTryDemo}
           disabled={disabled}
-          whileHover={disabled ? {} : { y: -2, boxShadow: "0 8px 24px rgba(37,99,235,0.25)" }}
-          whileTap={disabled ? {} : { y: 0, boxShadow: "0 2px 8px rgba(37,99,235,0.2)" }}
+          whileHover={disabled ? {} : { y: -1, boxShadow: "0 4px 16px rgba(0,0,0,0.12)" }}
+          whileTap={disabled ? {} : { y: 0 }}
           className="w-full flex items-center justify-center gap-3 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
           style={{
-            background: "var(--accent-blue)",
-            color: "#ffffff",
-            padding: "16px 24px",
+            background: "var(--bg-secondary)",
+            color: "var(--text-primary)",
+            padding: "14px 24px",
             fontFamily: "var(--font-serif)",
-            fontSize: "1.05rem",
+            fontSize: "1rem",
             fontWeight: 600,
-            border: "none",
-            boxShadow: "0 4px 14px rgba(37,99,235,0.3)",
+            border: "1px solid var(--border)",
+            boxShadow: "var(--card-shadow)",
             cursor: disabled ? "not-allowed" : "pointer",
           }}
         >
-          <Sparkles size={18} style={{ flexShrink: 0 }} />
-          Try Demo — See BriefCheck in Action
+          <Sparkles size={16} style={{ flexShrink: 0, color: "var(--text-secondary)" }} />
+          Try Demo — See BriefCase in Action
         </motion.button>
         <p
           className="text-center text-xs mt-2.5 leading-relaxed"

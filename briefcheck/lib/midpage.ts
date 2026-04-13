@@ -16,6 +16,7 @@ export interface MidpageOpinion {
   citations?: { cite?: string; cited_as?: string; volume?: string; reporter?: string; page?: string }[];
   citation_count?: number;
   overall_treatment?: string; // "Positive" | "Negative" | "Caution" | "Neutral"
+  html_content?: string | null; // full opinion text when include_content: true
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
@@ -44,7 +45,7 @@ export async function lookupCitations(
   const res = await fetch(`${MIDPAGE_API_BASE}/opinions/get`, {
     method: "POST",
     headers: headers(),
-    body: JSON.stringify({ citations }),
+    body: JSON.stringify({ citations, include_content: true }),
   });
 
   if (!res.ok) {

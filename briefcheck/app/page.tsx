@@ -441,7 +441,7 @@ export default function Home() {
                       className="text-base leading-relaxed mb-6"
                       style={{ color: "var(--text-secondary)" }}
                     >
-                      Upload a brief and BriefCheck runs three simultaneous analyses —
+                      Upload a brief and BriefCase runs three simultaneous analyses —
                       verifying every citation, checking contract clause enforceability across
                       US states, and scanning the Federal Register for recent regulations.
                     </p>

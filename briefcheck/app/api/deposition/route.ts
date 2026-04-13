@@ -21,6 +21,29 @@ export interface DepositionOutline {
   topics: DepositionTopic[];
 }
 
+// Repair truncated JSON from Claude — closes any open strings, brackets, braces
+function repairJSON(text: string): string {
+  let cleaned = text.trim();
+
+  // Strip markdown wrappers
+  cleaned = cleaned.replace(/^```json\s*/i, "").replace(/\s*```$/i, "").trim();
+
+  // If truncated mid-string, close the open string
+  const quoteCount = (cleaned.match(/(?<!\\)"/g) || []).length;
+  if (quoteCount % 2 !== 0) cleaned += '"';
+
+  // Close missing brackets and braces (innermost first)
+  const openBrackets = (cleaned.match(/\[/g) || []).length;
+  const closeBrackets = (cleaned.match(/\]/g) || []).length;
+  const openBraces = (cleaned.match(/\{/g) || []).length;
+  const closeBraces = (cleaned.match(/\}/g) || []).length;
+
+  for (let i = 0; i < openBrackets - closeBrackets; i++) cleaned += "]";
+  for (let i = 0; i < openBraces - closeBraces; i++) cleaned += "}";
+
+  return cleaned;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { report, witnessRole }: { report: AnalysisReport; witnessRole: string } =
@@ -54,9 +77,11 @@ export async function POST(req: NextRequest) {
       })
       .join("\n\n");
 
-    const prompt = `You are an expert litigator preparing deposition questions for the opposing party.
+    const systemPrompt = `You are an expert litigator preparing deposition questions.
+Return ONLY valid JSON — no explanation, no markdown, no preamble.
+Keep the total response under 3000 tokens. Limit to 4-5 topic areas with 3 questions each. Be concise.`;
 
-A legal brief has been analyzed. Here is a summary of its citations and holdings:
+    const userPrompt = `A legal brief has been analyzed. Here is a summary of its citations and holdings:
 
 ${citationSummary}
 
@@ -86,12 +111,13 @@ Return ONLY valid JSON in this exact structure:
   ]
 }
 
-Generate 4-6 topics with 3-5 questions each. Make questions specific and legally precise.`;
+Generate exactly 4-5 topics with exactly 3 questions each. Make questions specific and legally precise.`;
 
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",
-      max_tokens: 3000,
-      messages: [{ role: "user", content: prompt }],
+      max_tokens: 4096,
+      system: systemPrompt,
+      messages: [{ role: "user", content: userPrompt }],
     });
 
     const block = response.content.find((b) => b.type === "text");
@@ -99,13 +125,14 @@ Generate 4-6 topics with 3-5 questions each. Make questions specific and legally
       return NextResponse.json({ error: "No response from Claude" }, { status: 500 });
     }
 
-    // Strip markdown fences if present
-    const cleaned = block.text.replace(/^```(?:json)?\s*/i, "").replace(/\s*```\s*$/, "").trim();
-    const outline: DepositionOutline = JSON.parse(cleaned);
+    const repaired = repairJSON(block.text);
+    console.log(`[deposition] raw=${block.text.length} repaired=${repaired.length} stop_reason=${response.stop_reason}`);
 
+    const outline: DepositionOutline = JSON.parse(repaired);
     return NextResponse.json(outline);
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
+    console.error("[deposition] error:", msg);
     return NextResponse.json({ error: msg }, { status: 500 });
   }
 }

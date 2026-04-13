@@ -155,27 +155,32 @@ Example output:
 
 export async function analyzeHolding(
   proposition: string,
-  opinionText: string,
+  opinionText: string | null,
   caseName: string
 ): Promise<{ match: boolean; analysis: string }> {
-  const cleaned = stripHtml(opinionText).slice(0, 6000);
+  const cleaned = opinionText ? stripHtml(opinionText).slice(0, 6000) : "";
+  console.log(`[analyzeHolding] "${caseName}" — raw=${opinionText?.length ?? 0} stripped=${cleaned.length}`);
+
+  const usesFallback = cleaned.length < 50;
+  if (usesFallback) {
+    console.log(`[analyzeHolding] opinion text too short/missing, using knowledge-based fallback`);
+  }
+
+  const userPrompt = usesFallback
+    ? `The legal brief cites ${caseName} for this proposition: "${proposition}". Based on your knowledge of this case, does the case actually support this proposition? Return ONLY JSON: {"match": true/false, "analysis": "2-3 sentence explanation"}`
+    : `Case: ${caseName}\n\nProposition claimed in brief: ${proposition}\n\nOpinion text:\n${cleaned}`;
 
   const text = await callLLM({
     model: ANALYZE_MODEL,
     maxTokens: 1024,
-    system: `You are a legal analysis expert. Given a legal proposition that a brief claims a case stands for, and the actual text of the court opinion, determine:
-1. Does the opinion actually support this proposition? (true/false)
+    system: `You are a legal analysis expert. Given a legal proposition that a brief claims a case stands for, determine:
+1. Does the case actually support this proposition? (true/false)
 2. A brief explanation (2-3 sentences max) of why it matches or doesn't.
 
 Consider: The proposition doesn't need to be a perfect quote — it should capture the holding or a key principle from the case. Be somewhat generous but flag clear misrepresentations.
 
 Return ONLY a JSON object: {"match": true/false, "analysis": "your explanation"}`,
-    user: `Case: ${caseName}
-
-Proposition claimed in brief: ${proposition}
-
-Opinion text:
-${cleaned}`,
+    user: userPrompt,
   });
 
   const cleaned2 = stripMarkdownFences(text);

@@ -7,17 +7,17 @@ import type { Session } from "@/lib/store";
 // ── Sidebar-specific design tokens (always dark, regardless of theme) ─────────
 
 const S = {
-  bg: "#1A1A1A",
-  border: "rgba(255,255,255,0.08)",
-  textPrimary: "#F0EDE8",
-  textSecondary: "rgba(240,237,232,0.5)",
-  hover: "rgba(255,255,255,0.05)",
-  activeBg: "rgba(37,99,235,0.2)",
-  activeBorder: "rgba(37,99,235,0.4)",
-  activeText: "#93B4FF",
-  btnBg: "rgba(37,99,235,0.15)",
-  btnBorder: "rgba(37,99,235,0.3)",
-  btnText: "#93B4FF",
+  bg: "var(--bg-secondary)",
+  border: "var(--border)",
+  textPrimary: "var(--text-primary)",
+  textSecondary: "var(--text-secondary)",
+  hover: "var(--bg-tertiary)",
+  activeBg: "rgba(37,99,235,0.08)",
+  activeBorder: "rgba(37,99,235,0.2)",
+  activeText: "var(--accent-blue)",
+  btnBg: "var(--bg-tertiary)",
+  btnBorder: "var(--border)",
+  btnText: "var(--text-secondary)",
 };
 
 interface SidebarProps {
@@ -129,7 +129,7 @@ export default function Sidebar({
       className="flex flex-col h-full"
       style={{
         background: S.bg,
-        borderRight: `1px solid ${S.border}`,
+        borderRight: `1px solid var(--border)`,
         width: SIDEBAR_W,
       }}
     >

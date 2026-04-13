@@ -25,7 +25,7 @@ export default function Header() {
             className="text-xl font-bold tracking-tight"
             style={{ fontFamily: "var(--font-serif)", color: "var(--text-primary)" }}
           >
-            BriefCheck
+            BriefCase
           </span>
         </div>
 

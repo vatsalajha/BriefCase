@@ -68,7 +68,7 @@ export default function CitationReport({ report, onReset }: CitationReportProps)
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `briefcheck-${report.fileName.replace(/\.[^.]+$/, "")}-${Date.now()}.json`;
+    a.download = `briefcase-${report.fileName.replace(/\.[^.]+$/, "")}-${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -305,7 +305,7 @@ export default function CitationReport({ report, onReset }: CitationReportProps)
                 No contract clauses detected
               </p>
               <p className="text-xs mt-1.5 max-w-sm mx-auto" style={{ color: "var(--text-secondary)" }}>
-                BriefCheck scans for non-compete, arbitration, NDA, liability cap, and non-solicitation clauses automatically.
+                BriefCase scans for non-compete, arbitration, NDA, liability cap, and non-solicitation clauses automatically.
               </p>
               <p className="text-xs mt-4" style={{ color: "var(--text-secondary)", opacity: 0.7 }}>
                 Or check a clause manually below:

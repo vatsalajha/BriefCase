@@ -1,0 +1,189 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "BriefCase Citation Verification API",
+    "description": "Verify legal case citations against comprehensive US case law databases. Check if citations exist, get citator treatment status, and detect potential AI hallucinations in legal briefs.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://YOUR_VERCEL_URL"
+    }
+  ],
+  "paths": {
+    "/api/gpt/verify-citation": {
+      "post": {
+        "operationId": "verifyCitation",
+        "summary": "Verify a single legal case citation",
+        "description": "Look up a legal citation (e.g., '410 U.S. 113' or '384 U.S. 436') in the Midpage case law database. Returns case details, citator treatment, and verification status. Use this when a user mentions a specific case citation and wants to verify it exists and is good law.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["citation"],
+                "properties": {
+                  "citation": {
+                    "type": "string",
+                    "description": "The case citation to verify. Format: volume reporter page (e.g., '410 U.S. 113', '585 U.S. 296', '384 U.S. 436'). Can also accept full citation with case name."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Citation verification result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "found": {
+                      "type": "boolean",
+                      "description": "Whether the citation was found in the database"
+                    },
+                    "case_name": {
+                      "type": "string",
+                      "description": "The full case name"
+                    },
+                    "citation": {
+                      "type": "string",
+                      "description": "The citation that was looked up"
+                    },
+                    "court": {
+                      "type": "string",
+                      "description": "The full court name"
+                    },
+                    "court_abbreviation": {
+                      "type": "string",
+                      "description": "Court abbreviation (e.g., SCOTUS, 9th Cir.)"
+                    },
+                    "date_filed": {
+                      "type": "string",
+                      "description": "Date the opinion was filed"
+                    },
+                    "citator_treatment": {
+                      "type": "string",
+                      "description": "Citator treatment: Positive, Negative, Caution, or Neutral"
+                    },
+                    "citation_count": {
+                      "type": "integer",
+                      "description": "Number of times this case has been cited"
+                    },
+                    "treatment_warning": {
+                      "type": "string",
+                      "description": "Human-readable warning about the citation's treatment status"
+                    },
+                    "verification_status": {
+                      "type": "string",
+                      "enum": ["found", "found_with_warning", "not_found", "error"],
+                      "description": "Overall verification status"
+                    },
+                    "warning": {
+                      "type": "string",
+                      "description": "Warning message if citation was not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gpt/check-brief": {
+      "post": {
+        "operationId": "checkBrief",
+        "summary": "Extract and verify all citations from a legal brief",
+        "description": "Analyze a legal brief or document text to find all case law citations, then verify each one against the case law database. Returns a complete verification report. Use this when a user pastes a brief or legal document and wants all citations checked at once.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The full text of the legal brief or document to analyze for citations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Full citation analysis report",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_citations": {
+                      "type": "integer"
+                    },
+                    "verified": {
+                      "type": "integer"
+                    },
+                    "warnings": {
+                      "type": "integer"
+                    },
+                    "not_found": {
+                      "type": "integer"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "citation_text": { "type": "string" },
+                          "case_name": { "type": "string" },
+                          "status": { "type": "string" },
+                          "treatment": { "type": "string" },
+                          "summary": { "type": "string" }
+                        }
+                      }
+                    },
+                    "report_summary": {
+                      "type": "string",
+                      "description": "Human-readable summary of the verification results"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gpt/health": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Check if the BriefCase API is running",
+        "description": "Simple health check endpoint to verify the service is operational.",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "service": { "type": "string" },
+                    "version": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

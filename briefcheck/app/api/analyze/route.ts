@@ -218,18 +218,22 @@ async function verifyCitation(citation: Citation): Promise<VerificationResult> {
   let holdingAnalysis = "";
   if (citation.proposition) {
     try {
-      const opinionText = await getOpinionText(opinionId);
-      if (opinionText) {
-        const result = await analyzeHolding(
-          citation.proposition,
-          opinionText,
-          opinion.case_name ?? citation.caseName
-        );
-        holdingMatch = result.match;
-        holdingAnalysis = result.analysis;
-      } else {
-        holdingAnalysis = "Opinion text unavailable from Midpage.";
+      // Prefer html_content bundled in the lookup response (include_content: true),
+      // then fall back to a separate getOpinionText fetch.
+      // analyzeHolding handles null gracefully — uses Claude knowledge as fallback.
+      let opinionText: string | null = opinion.html_content ?? null;
+      if (!opinionText && !isTrustFoundry) {
+        opinionText = await getOpinionText(opinionId);
       }
+      console.log(`[analyze] opinionText for ${opinionId}: ${opinionText?.length ?? 0} chars`);
+
+      const result = await analyzeHolding(
+        citation.proposition,
+        opinionText,
+        opinion.case_name ?? citation.caseName
+      );
+      holdingMatch = result.match;
+      holdingAnalysis = result.analysis;
     } catch (err) {
       console.warn(`[analyze] holding analysis failed for ${opinionId}:`, err);
       holdingAnalysis = "Holding analysis could not be completed.";
