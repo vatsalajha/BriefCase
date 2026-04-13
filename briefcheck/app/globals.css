@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@import "tailwindcss";
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #F5F0E8;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #EDE7DB;
+  --bg-sidebar: #1A1A1A;
+
+  /* Text */
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6356;
+  --text-tertiary: #9C9488;
+
+  /* Accents */
+  --accent-green: #16A34A;
+  --accent-amber: #D97706;
+  --accent-red: #DC2626;
+  --accent-blue: #2563EB;
+
+  /* Borders */
+  --border: #E2DCD0;
+  --border-strong: #C4BDB0;
+
+  /* Shadows */
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+@theme inline {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent-green: var(--accent-green);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-red: var(--accent-red);
+  --color-accent-blue: var(--accent-blue);
+  --color-border: var(--border);
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+}
+
+html,
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "DM Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}

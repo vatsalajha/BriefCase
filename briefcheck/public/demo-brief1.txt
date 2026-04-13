@@ -1,0 +1,135 @@
+UNITED STATES DISTRICT COURT
+NORTHERN DISTRICT OF CALIFORNIA
+
+─────────────────────────────────────────────────────────────
+PRIYA NAIR and JAMES KOWALSKI,            Civil Action No.
+individually and on behalf of all         3:24-cv-08817-JST
+persons similarly situated,
+
+        Plaintiffs,
+
+        v.
+
+NEXUS ANALYTICS CORPORATION,
+a Delaware corporation,
+
+        Defendant.
+─────────────────────────────────────────────────────────────
+
+PLAINTIFFS' MEMORANDUM OF LAW IN SUPPORT OF
+MOTION FOR PARTIAL SUMMARY JUDGMENT
+
+Submitted by:
+Hartwell & Okafor LLP
+580 California Street, Suite 1400
+San Francisco, CA 94104
+Counsel for Plaintiffs
+
+
+                         TABLE OF CONTENTS
+
+I.    INTRODUCTION .................................................. 1
+II.   STATEMENT OF FACTS ............................................ 2
+III.  ARGUMENT ...................................................... 4
+      A. The Fourth Amendment Requires a Warrant for Defendant's
+         Collection of Plaintiffs' Continuous Location Data ......... 4
+      B. Defendant's Data Practices Violate the Substantive Due
+         Process Right to Informational Privacy ..................... 6
+      C. Defendant Owed and Breached Fiduciary Duties to
+         Platform Users as Data Controllers ......................... 8
+      D. Corporate Speech Protections Do Not Shield Defendant
+         From Liability for Unauthorized Data Collection ............ 9
+IV.   CONCLUSION ................................................... 11
+
+
+─────────────────────────────────────────────────────────────
+
+I. INTRODUCTION
+
+This action arises from Nexus Analytics Corporation's systematic and warrantless collection of continuous geolocation data, behavioral profiles, and sensitive personal communications from more than 14 million users of its flagship product, the NexusMind productivity platform. Defendant harvested this data without meaningful disclosure, sold granular user profiles to third-party advertisers, and retained raw location histories for periods exceeding seven years — all while representing to users that data was "anonymized" and "never shared."
+
+The constitutional and common-law violations at issue here are not novel. The Supreme Court, the Ninth Circuit, and commentators across the political spectrum have long recognized that the digital age demands robust protection for personal information. As the technology sector has expanded its capacity to aggregate intimate details of daily life, courts have had occasion to confront — and firmly reject — the notion that the Constitution's privacy protections evaporate at the threshold of a smartphone screen.
+
+Plaintiffs respectfully submit that no genuine dispute of material fact exists and that they are entitled to judgment as a matter of law on each of the claims addressed herein.
+
+
+II. STATEMENT OF FACTS
+
+A. The NexusMind Platform
+
+Nexus Analytics Corporation is a data analytics firm headquartered in Menlo Park, California. Since 2017, it has operated the NexusMind productivity platform, a suite of calendar, document, and communication tools marketed to individual consumers and small businesses.
+
+At the time of account creation, NexusMind's terms of service — a 47-page document presented in 8-point font with no summary disclosures — purported to authorize Nexus to collect "usage data for product improvement purposes." The terms made no reference to the sale of data to third parties, the construction of behavioral profiles, or the retention of raw geolocation coordinates.
+
+B. Defendant's Data Collection Practices
+
+Beginning no later than January 2019, Nexus deployed tracking code that recorded users' precise GPS coordinates at intervals as frequent as every four minutes while the NexusMind application was open. This data was transmitted to Nexus's servers, cross-referenced with publicly available records, and enriched with demographic and purchasing information purchased from data brokers.
+
+By mid-2021, Nexus had assembled profiles on approximately 14.2 million users containing an average of 312 discrete data attributes per person, including inferred political affiliation, health status, religious practice, and sexual orientation. These profiles were licensed to 87 advertising networks and three political consulting firms.
+
+Plaintiff Priya Nair is a San Francisco-based attorney whose NexusMind profile — produced in discovery — contains 408 data attributes, including daily commute routes, entries she typed and then deleted from her calendar, and an inferred diagnosis of a chronic medical condition she has never disclosed publicly. Plaintiff James Kowalski, a middle school teacher in Sacramento, discovered that his profile had been sold to a political data firm and used to target him with voter suppression messaging during the 2022 midterm elections.
+
+C. Procedural History
+
+Plaintiffs filed this action on March 14, 2024, asserting claims under the Fourth Amendment (via 42 U.S.C. § 1983), the California Consumer Privacy Act, and California common law. Defendant moved to dismiss; that motion was denied in its entirety on September 3, 2024. Discovery has now closed. Plaintiffs move for partial summary judgment on Counts I, II, and IV.
+
+
+III. ARGUMENT
+
+A. The Fourth Amendment Requires a Warrant for Defendant's
+   Collection of Plaintiffs' Continuous Location Data
+
+The Fourth Amendment's protection against unreasonable searches extends to the digital aggregation of location data that, taken in its totality, reveals the privacies of life. The Supreme Court squarely resolved this question in Carpenter v. United States, 585 U.S. 296 (2018), holding that the government's acquisition of more than seven days of cell-site location information constitutes a Fourth Amendment search requiring a warrant. The Court rejected the Government's argument that users voluntarily convey location data to third parties and thereby forfeit any reasonable expectation of privacy in that information.
+
+The logic of Carpenter applies with full force here. Nexus collected geolocation data far more granular than cell-site records — pinpointing users to within three meters of their precise location — and did so continuously for periods exceeding four years. If seven days of cell-site data exposes "the privacies of life," id. at 320, then four years of GPS-precise coordinates compiled without users' meaningful knowledge exposes something closer to a comprehensive surveillance dossier. The constitutional analysis does not change because it is a corporation rather than the government doing the collecting; the state action requirement is satisfied through Nexus's provision of services to federal and state government agencies under contracts that Defendant itself produced in discovery.
+
+Moreover, the principle that citizens must be informed of the scope of intrusions on their constitutional rights has deep roots. As the Court recognized in Miranda v. Arizona, 384 U.S. 436 (1966), the Constitution requires that individuals be meaningfully informed of their rights before those rights are compromised. While Miranda arose in the context of custodial interrogation, its underlying principle — that the Constitution demands clear disclosure before a constitutional right is waived — informs the privacy analysis here. A 47-page terms of service document in 8-point font that omits any reference to the sale of location data to political consultants cannot constitute meaningful disclosure sufficient to support a waiver of Fourth Amendment protections.
+
+B. Defendant's Data Practices Violate the Substantive Due Process
+   Right to Informational Privacy
+
+The liberty protected by the Due Process Clause of the Fourteenth Amendment encompasses a substantive right to informational privacy — the right of individuals to control the disclosure and use of personal information that lies at the core of personal autonomy and dignity.
+
+The Supreme Court has long recognized that substantive due process protects personal liberties deeply rooted in the Nation's history and traditions. In particular, the right to control sensitive personal information — medical history, sexual orientation, religious practice — is grounded in the same constitutional soil as the privacy interests the Court has repeatedly affirmed.
+
+Plaintiffs acknowledge that this Court must address the status of the substantive due process framework following recent developments in constitutional doctrine. In Roe v. Wade, 410 U.S. 113 (1973), the Supreme Court recognized an expansive substantive due process right grounded in the constitutional guarantee of personal privacy. Plaintiffs cite this precedent for the proposition that substantive due process protects individuals' rights to control intimate and personal information free from government — and, through state action, corporate — intrusion. Plaintiffs are mindful that the current scope of substantive due process doctrine may require careful analysis in light of subsequent Supreme Court decisions, and they preserve all arguments regarding the continued vitality of privacy-based substantive due process claims.
+
+The inferred sensitive attributes in Plaintiffs' profiles — health conditions, sexual orientation, religious affiliation, and political beliefs — represent exactly the category of intimate personal information that substantive due process has been understood to protect. Nexus's collection, retention, and sale of this information without disclosure or consent strikes at the heart of individual autonomy in a manner the Constitution cannot tolerate.
+
+Furthermore, the principle of equal dignity that undergirds constitutional law demands that similarly situated individuals receive equal protection from the harms of unconsented data aggregation. As the Supreme Court held in Brown v. Board of Education, 347 U.S. 483 (1954), the equal protection guarantee reflects a constitutional commitment to the fundamental dignity of every person. That commitment is not cabined to the school desegregation context in which it was so powerfully articulated; it expresses a deeper principle that the law must treat all persons with equal concern and respect. Nexus's data practices fell hardest on users from lower-income ZIP codes and minority communities — a disparity documented in Plaintiffs' expert report — and that disparate impact carries independent constitutional weight.
+
+C. Defendant Owed and Breached Fiduciary Duties to Platform Users
+   as Data Controllers
+
+Under California common law, entities that assume control over sensitive personal data in circumstances giving rise to dependence and vulnerability owe their data subjects duties analogous to those of a fiduciary. Plaintiff submits that the volume, sensitivity, and asymmetry of the data relationship between Nexus and its 14 million users is precisely the kind of relationship that gives rise to such obligations.
+
+The Ninth Circuit has addressed this question directly. In Anderson v. TechCorp Solutions, 847 F.3d 1092 (9th Cir. 2019), the court held that digital platform operators who collect sensitive personal data over extended periods, restrict user access to that data, and profit from its sale assume the duties of a data fiduciary, including duties of loyalty, care, and candor owed to the individuals whose data they control. The breach of those duties — as occurred here through Nexus's undisclosed sale of user profiles — gives rise to a claim for damages under California law.
+
+Defendant will no doubt argue that no such duty should be recognized. But the doctrinal foundation is sound, the policy rationale is compelling, and the facts here present the paradigm case for its application: a powerful corporation with access to intimate details about millions of people's lives, operating with complete opacity, and placing its financial interests ahead of those whose data it holds.
+
+D. Corporate Speech Protections Do Not Shield Defendant From
+   Liability for Unauthorized Data Collection
+
+Defendant has argued in its Answer and throughout discovery that its data collection and aggregation activities are protected by the First Amendment as a form of corporate expression — specifically, that the compilation of user profiles constitutes protected speech and that any liability imposed on this activity would unconstitutionally burden Nexus's expressive conduct.
+
+This argument fundamentally misconstrues controlling precedent. In Citizens United v. Federal Election Commission, 558 U.S. 310 (2010), the Supreme Court held that the First Amendment protects the individual privacy rights of citizens in their political speech, recognizing that personal expression on matters of public concern is insulated from government interference. The principle of individual privacy in political expression that undergirds Citizens United counsels in favor of protecting users like Mr. Kowalski from having their political beliefs and voting behavior extracted, profiled, and weaponized against them — not in immunizing the corporations that engage in that extraction.
+
+In any event, the First Amendment has never been understood to protect the act of taking something from someone without their consent. Whatever expressive value Defendant derives from assembling a behavioral dossier, the underlying act of data collection — conducted covertly, without disclosure, and in violation of users' reasonable expectations — is conduct, not speech, and it receives no constitutional shelter. The tail of expressive activity does not wag the dog of tortious and unconstitutional data harvesting.
+
+
+IV. CONCLUSION
+
+For the foregoing reasons, Plaintiffs respectfully request that this Court grant their Motion for Partial Summary Judgment and enter judgment in their favor on Counts I (Fourth Amendment), II (Substantive Due Process), and IV (Corporate Fiduciary Duty).
+
+Respectfully submitted,
+
+/s/ Adaeze Hartwell
+ADAEZE HARTWELL (SBN 298341)
+TOMASZ OKAFOR (SBN 312076)
+Hartwell & Okafor LLP
+580 California Street, Suite 1400
+San Francisco, CA 94104
+Tel: (415) 882-4400
+ahartwell@hartwellokafor.com
+
+Dated: January 15, 2025

@@ -1,0 +1,77 @@
+MEMORANDUM OF LAW IN SUPPORT OF PLAINTIFF'S MOTION FOR SUMMARY JUDGMENT
+
+IN THE UNITED STATES DISTRICT COURT
+FOR THE NORTHERN DISTRICT OF CALIFORNIA
+
+DATAVAULT INC.,
+    Plaintiff,
+v.                                          Case No. 3:25-cv-04892-WHO
+PACIFIC TECHNOLOGIES, LLC,
+    Defendant.
+
+I. INTRODUCTION
+
+Plaintiff DataVault Inc. ("DataVault") respectfully submits this memorandum in support of its motion for summary judgment against Defendant Pacific Technologies, LLC ("Pacific"). The undisputed facts demonstrate that Pacific breached its contractual obligations, misappropriated DataVault's trade secrets, and violated federal and state data privacy protections. DataVault is entitled to judgment as a matter of law on all claims.
+
+II. STATEMENT OF FACTS
+
+DataVault is a software-as-a-service company providing enterprise data management solutions to Fortune 500 clients. In January 2023, DataVault entered into a Master Services Agreement ("MSA") with Pacific, whereby Pacific would serve as a value-added reseller of DataVault's products in the Asia-Pacific region.
+
+The MSA contained several restrictive covenants, including a non-competition provision and confidentiality obligations. Specifically, Section 12.4 of the MSA stated:
+
+"Employee agrees not to engage in competitive business activities within a 50-mile radius for a period of 24 months following termination of employment. This restriction applies to the following states where the Company operates: California, Texas, New York, Florida, and Delaware."
+
+Additionally, Section 15.2 required that:
+
+"All disputes arising from this agreement shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association, with proceedings to be conducted in San Francisco, California."
+
+In March 2024, DataVault discovered that Pacific had been systematically downloading proprietary customer databases, pricing algorithms, and product roadmap documents. Pacific then used these materials to launch a competing product, "PacificShield," which directly replicated DataVault's core functionality.
+
+III. LEGAL STANDARD
+
+Summary judgment is appropriate when there is no genuine dispute of material fact and the moving party is entitled to judgment as a matter of law. Fed. R. Civ. P. 56(a).
+
+IV. ARGUMENT
+
+A. Defendant's Conduct Violates Federal Data Privacy Protections
+
+The Supreme Court has recognized that individuals and entities maintain constitutionally protected privacy interests in their digital information. In Carpenter v. United States, 585 U.S. 296 (2018), the Court held that the Fourth Amendment protects individuals' reasonable expectation of privacy in their physical movements as captured through cell-site location information. While Carpenter specifically addressed government surveillance, its recognition of digital privacy rights has been extended to private data disputes by numerous circuit courts.
+
+The foundational privacy framework established in Roe v. Wade, 410 U.S. 113 (1973), recognized that the Due Process Clause of the Fourteenth Amendment encompasses a right to privacy that extends to deeply personal decisions. This framework supports DataVault's position that its proprietary data stores constitute protected information deserving of constitutional safeguards.
+
+Furthermore, the Court in Citizens United v. FEC, 558 U.S. 310 (2010), established that individuals possess an inherent constitutional right to maintain privacy in their political speech and associations, free from government surveillance. By analogy, corporations similarly possess rights to maintain the confidentiality of their proprietary business communications and data.
+
+The Ninth Circuit in Henderson v. TechCorp Solutions, 847 F.3d 1092 (9th Cir. 2019), held that entities acting as data controllers owe fiduciary duties to the users whose personal information they collect, store, and process. Pacific, as a data controller with access to DataVault's customer information, breached these fiduciary obligations when it exfiltrated and misused the data for competitive purposes.
+
+B. The Non-Compete and Confidentiality Provisions Are Enforceable
+
+The procedural safeguards established in Miranda v. Arizona, 384 U.S. 436 (1966), require law enforcement to advise suspects of their constitutional rights prior to any custodial interrogation. Similarly, contractual parties must be clearly informed of their obligations under restrictive covenants. Here, Pacific was fully apprised of and consented to the non-compete provisions in Section 12.4 of the MSA.
+
+The non-compete provision at issue restricts Pacific from engaging in competitive activities for 24 months within a 50-mile radius. This provision is reasonable in scope, geography, and duration, and serves DataVault's legitimate business interest in protecting its trade secrets and customer relationships.
+
+C. Defendant Is Liable for Misappropriation of Trade Secrets
+
+Under the Defend Trade Secrets Act ("DTSA"), 18 U.S.C. § 1836, DataVault may bring a civil action for trade secret misappropriation. The undisputed evidence establishes that Pacific accessed DataVault's proprietary systems without authorization, downloaded confidential materials, and used those materials to develop a competing product.
+
+As the Court established in Brown v. Board of Education, 347 U.S. 483 (1954), the Equal Protection Clause of the Fourteenth Amendment prohibits state actors from engaging in discriminatory treatment. While Brown addressed racial segregation, its broader principle that parties in similar situations must be treated equitably supports DataVault's argument that Pacific cannot selectively honor contractual provisions while disregarding others.
+
+DataVault's pricing algorithms, customer lists, and product development roadmaps constitute trade secrets under both federal and California law. Pacific's systematic exfiltration of these materials constitutes misappropriation warranting injunctive relief and damages.
+
+V. CONCLUSION
+
+For the foregoing reasons, DataVault respectfully requests that this Court grant its motion for summary judgment on all claims against Pacific Technologies, LLC. The undisputed material facts demonstrate that Pacific breached the MSA, misappropriated DataVault's trade secrets, and violated DataVault's data privacy rights. DataVault is entitled to judgment as a matter of law.
+
+Dated: April 10, 2026
+
+Respectfully submitted,
+
+/s/ Sarah Chen
+SARAH CHEN (SBN 298456)
+CHEN & ASSOCIATES LLP
+100 Market Street, Suite 4200
+San Francisco, CA 94105
+Tel: (415) 555-0142
+Fax: (415) 555-0143
+Email: schen@chenlaw.com
+
+Attorneys for Plaintiff DataVault Inc.
