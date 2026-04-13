@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://YOUR_VERCEL_URL"
+      "url": "https://briefcheck.vercel.app"
     }
   ],
   "paths": {
