@@ -24,6 +24,7 @@ import {
   defaultDateRange,
 } from "@/lib/federal-register";
 import type { AnalysisReport, Citation, VerificationResult, JurisdictionResult, RegulatoryAlert } from "@/lib/types";
+import { isServiceEnabled, checkDailyLimit, trackAnalysis } from "@/lib/kv";
 
 const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB
 
@@ -296,6 +297,23 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  // ── Kill switch + daily limit check ──────────────────────────────────────
+  const [serviceOn, limitCheck] = await Promise.all([isServiceEnabled(), checkDailyLimit()]);
+  if (!serviceOn) {
+    return NextResponse.json(
+      { error: "BriefCase is temporarily paused for maintenance. Please try again later." },
+      { status: 503 }
+    );
+  }
+  if (!limitCheck.ok) {
+    return NextResponse.json(
+      {
+        error: `Daily analysis limit reached (${limitCheck.count}/${limitCheck.limit}). Service resets at midnight UTC.`,
+      },
+      { status: 429 }
+    );
+  }
+
   // Capture for use inside the stream closure
   const capturedFileName = fileName;
   const capturedText = briefText;
@@ -500,6 +518,9 @@ export async function POST(request: NextRequest) {
         console.log(
           `[analyze] done — verified=${report.verified} warnings=${report.warnings} errors=${report.errors} not_found=${report.notFound}`
         );
+
+        // Track usage (non-fatal — never blocks the response)
+        trackAnalysis(results.length).catch(() => {});
 
         updateSession(session.id, {
           status: "completed",

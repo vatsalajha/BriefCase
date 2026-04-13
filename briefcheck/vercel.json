@@ -4,6 +4,8 @@
     "app/api/jurisdiction/route.ts": { "maxDuration": 60 },
     "app/api/regulatory/route.ts": { "maxDuration": 30 },
     "app/api/gpt/check-brief/route.ts": { "maxDuration": 60 },
-    "app/api/gpt/verify-citation/route.ts": { "maxDuration": 30 }
+    "app/api/gpt/verify-citation/route.ts": { "maxDuration": 30 },
+    "app/api/admin/stats/route.ts": { "maxDuration": 10 },
+    "app/api/admin/control/route.ts": { "maxDuration": 10 }
   }
 }
